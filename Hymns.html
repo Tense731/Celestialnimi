@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show and Close PDF</title>
+    <style>
+        /* General page styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* PDF container style */
+.pdf-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+/* Close button style */
+.close-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.close-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Link style */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Text that, when clicked, shows the PDF -->
+    <p><a href="javascript:void(0);" onclick="showPDF()">Click Here To View The Celestial Hymns</a></p>
+
+    <!-- Container for the PDF -->
+    <div class="pdf-container" id="pdfContainer">
+        <button class="close-btn" onclick="closePDF()">Close PDF</button>
+        <iframe id="pdfViewer" src="" width="100%" height="600px"></iframe>
+    </div>
+
+    <script>
+        // Function to show the PDF
+function showPDF() {
+    const pdfContainer = document.getElementById('pdfContainer');
+    const pdfViewer = document.getElementById('pdfViewer');
+
+    // Set the src attribute of the iframe to the path of your PDF
+    pdfViewer.src = "CCC-Hymns.pdf"; // Change this URL to your PDF's URL
+
+    // Display the PDF container
+    pdfContainer.style.display = 'block';
+}
+
+// Function to close the PDF
+function closePDF() {
+    const pdfContainer = document.getElementById('pdfContainer');
+    const pdfViewer = document.getElementById('pdfViewer');
+
+    // Clear the PDF source
+    pdfViewer.src = "";
+
+    // Hide the PDF container
+    pdfContainer.style.display = 'none';
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCC Hymns</title>
+    <style>
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+.view-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.view-button:active {
+    background-color: #004085;
+}
+
+.document-viewer {
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+    position: relative;
+}
+
+.document-viewer iframe {
+    border: 1px solid #ccc;
+}
+
+.close-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #c82333;
+}
+
+.close-button:active {
+    background-color: #bd2130;
+}
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Celestialnimi</h1>
+        <p>Click the button below to view the hymn document:</p>
+        
+        <!-- Button to trigger document viewing -->
+        <button class="view-button" onclick="viewDocument()">View Document</button>
+        
+        <!-- Section to display the embedded document -->
+        <div id="document-viewer" class="document-viewer">
+            <!-- Document will be embedded here -->
+            <button class="close-button" onclick="closeDocument()">Close</button>
+            <iframe id="document-iframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function viewDocument() {
+            // The path to your document
+            const documentPath = 'CCC-Hymns.pdf';
+
+            // Find the container where the document will be embedded
+            const viewerContainer = document.getElementById('document-viewer');
+            const iframe = document.getElementById('document-iframe');
+            
+            // Set the iframe source to load the document
+            iframe.src = documentPath;
+
+            // Show the document viewer and the close button
+            viewerContainer.style.display = 'block';
+        }
+
+        function closeDocument() {
+            // Find the container and iframe
+            const viewerContainer = document.getElementById('document-viewer');
+            const iframe = document.getElementById('document-iframe');
+            
+            // Hide the document viewer
+            viewerContainer.style.display = 'none';
+
+            // Reset the iframe source to stop the document from displaying
+            iframe.src = '';
+        }
+    </script>
+</body>
+</html>
