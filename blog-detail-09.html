@@ -23,6 +23,21 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+  <style>
+    #shareBtn {
+      padding: 10px 20px;
+      background-color: #17b978;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #shareBtn:hover {
+      background-color: #17b978;
+    }
+  </style>
+
 </head>
 <body class="animsition">
 	
@@ -1739,8 +1754,34 @@
                                 
                                 Porto-Novo, the supreme headquarters, chose Benoit D. AGBAOSSI (1931-2010) to succeed the Founder. The church celebrated the 100-year anniversary of its founder's birth with a music festival and had awarded prizes in memory of him in Benin.[10] Five percent of the 8,000,000 population of Oshoffa's home country of Benin were Celestial Christians in 2009.[4]
 							</p>
+ <button id="shareBtn">Share This Page</button>
+							  <script>
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const currentUrl = window.location.href;
 
-							
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: document.title,
+            url: currentUrl
+          });
+          console.log('Shared successfully');
+        } catch (err) {
+          console.error('Error sharing:', err);
+        }
+      } else {
+        // Fallback: copy to clipboard
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+          alert('Page URL copied to clipboard!');
+        } catch (err) {
+          console.error('Could not copy URL:', err);
+          alert('Could not copy URL. Please copy it manually.');
+        }
+      }
+    });
+  </script>
+
 
 							<!-- Tag -->
 							<div class="flex-s-s p-t-12 p-b-15">
@@ -1841,7 +1882,7 @@
 							</p>
 
 							<div class="p-t-15">
-								<a href="https://www.instagram.com/celestialnimi/profilecard/?igsh=MXVkeWV6MTRzNWY3cQ==" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<a href="https://www.facebook.com/share/16cKD4Fw9v/" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-facebook-f"></span>
 								</a>
 

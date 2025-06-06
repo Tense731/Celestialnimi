@@ -23,6 +23,21 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+  <style>
+    #shareBtn {
+      padding: 10px 20px;
+      background-color: #17b978;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #shareBtn:hover {
+      background-color: #17b978;
+    }
+  </style>
+
 </head>
 <body class="animsition">
 	
@@ -1715,8 +1730,34 @@
 								Halleluya! Revrend Mobiyina Oshoffa is welcoming to Imeko 2024. You don't want to miss it you will catch some special and some meaningful Insights about celstial worldwide, different people are coming from different part of the world
 								to witness Imeko 2024. Be There!!! 20th-25th December 2024. Celestial City, Imeko, Ogun State, Nigeria
 							</p>
+ <button id="shareBtn">Share This Page</button>
+							  <script>
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const currentUrl = window.location.href;
 
-							
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: document.title,
+            url: currentUrl
+          });
+          console.log('Shared successfully');
+        } catch (err) {
+          console.error('Error sharing:', err);
+        }
+      } else {
+        // Fallback: copy to clipboard
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+          alert('Page URL copied to clipboard!');
+        } catch (err) {
+          console.error('Could not copy URL:', err);
+          alert('Could not copy URL. Please copy it manually.');
+        }
+      }
+    });
+  </script>
+
 
 							<!-- Tag -->
 							<div class="flex-s-s p-t-12 p-b-15">
@@ -1742,7 +1783,7 @@
 								</span>
 								
 								<div class="flex-wr-s-s size-w-0">
-									<a href="#" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+									<a href="https://www.facebook.com/share/16cKD4Fw9v/" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
 										<i class="fab fa-facebook-f m-r-7"></i>
 										Facebook
 									</a>
@@ -1817,7 +1858,7 @@
 							</p>
 
 							<div class="p-t-15">
-								<a href="https://www.instagram.com/celestialnimi/profilecard/?igsh=MXVkeWV6MTRzNWY3cQ==" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+									<a href="https://www.facebook.com/share/16cKD4Fw9v/" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-facebook-f"></span>
 								</a>
 

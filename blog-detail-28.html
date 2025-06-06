@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home 01</title>
+	<title>Celestialnimi</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="images/1a.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -23,6 +23,20 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+  <style>
+    #shareBtn {
+      padding: 10px 20px;
+      background-color: #17b978;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #shareBtn:hover {
+      background-color: #17b978;
+    }
+  </style>
 </head>
 <body class="animsition">
 	
@@ -1713,7 +1727,35 @@
     We therefore encourage CCC worldwide to stand as one .
 							</p>
 
-							
+							 <button id="shareBtn">Share This Page</button>
+
+  <script>
+    document.getElementById('shareBtn').addEventListener('click', async () => {
+      const currentUrl = window.location.href;
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: document.title,
+            url: currentUrl
+          });
+          console.log('Shared successfully');
+        } catch (err) {
+          console.error('Error sharing:', err);
+        }
+      } else {
+        // Fallback: copy to clipboard
+        try {
+          await navigator.clipboard.writeText(currentUrl);
+          alert('Page URL copied to clipboard!');
+        } catch (err) {
+          console.error('Could not copy URL:', err);
+          alert('Could not copy URL. Please copy it manually.');
+        }
+      }
+    });
+  </script>
+
 
 							<!-- Tag -->
 							<div class="flex-s-s p-t-12 p-b-15">
@@ -1814,7 +1856,7 @@
 							</p>
 
 							<div class="p-t-15">
-								<a href="https://www.instagram.com/celestialnimi/profilecard/?igsh=MXVkeWV6MTRzNWY3cQ==" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+								<a href="https://www.facebook.com/share/16cKD4Fw9v/" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-facebook-f"></span>
 								</a>
 
